@@ -3,15 +3,6 @@
 
 #include "Criterion.h"
 #include "Alternative.h"
-#include <string>
-#include <vector>
-#include <memory>
-
-// Global custom types
-typedef std::vector<int> IntVector;
-typedef std::vector<double> FloatVector;
-typedef std::string string;
-typedef std::vector<string> StringVector;
 
 /* Interface class 
  * Provides acces to the OWA computation and its results
@@ -19,13 +10,19 @@ typedef std::vector<string> StringVector;
 class OWA
 {
 public:
+  // Type definitions
+  typedef std::vector<int> IntVector;
+  typedef std::vector<double> FloatVector;
+  typedef std::string string;
+  typedef std::vector<string> StringVector;
+
   /* Constructor
    *
    * param "criteria": Array of pointers to criteria instances
    */
-  OWA (const Criterion::Vector &criteria, const Alternative::Vector &candidates) :
-      _numberOfCriteria (criteria.size ()), _numberOfCandidates (
-	  candidates.size ()), _criteria (criteria), _candidates (candidates)
+  OWA(const Criterion::Vector &criteria, const Alternative::Vector &candidates) :
+      _numberOfCriteria(criteria.size()), _numberOfCandidates(candidates.size()), _criteria(criteria), _candidates(
+          candidates)
   {
   }
 

@@ -17,8 +17,12 @@ class Criterion
 {
 
 public:
-  // Vector type
-  typedef std::vector<std::unique_ptr<Criterion>> Vector;
+  // Type definitions
+  typedef std::vector<int> IntVector;
+  typedef std::vector<double> FloatVector;
+  typedef std::string string;
+  typedef std::vector<string> StringVector;
+  typedef std::vector<std::shared_ptr<Criterion>> Vector;
 
   /* Constructor
    *
