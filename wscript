@@ -5,7 +5,7 @@ import sys
 import os
 import re
 
-subdirs = ['OWA']
+subdirs = ['MDMA']
 
 top = '.'
 out = 'build'
@@ -23,7 +23,7 @@ def options(opt):
 def configure(conf):
     
     conf.load('compiler_cxx')
-    conf.env.append_value('CXXFLAGS', ['-std=c++11', '-Wall', '-Werror', '-pedantic'])
+    conf.env.append_value('CXXFLAGS', ['-std=c++11', '-Wall', '-pedantic'])
     if conf.options.debug and conf.options.optim:
         conf.fatal('--debug and --optim options are mutually exclusive')
     elif conf.options.debug :

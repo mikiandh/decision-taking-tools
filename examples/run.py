@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2.7
 #
 # Description:
 #
@@ -9,7 +9,21 @@
 import sys, os
 
 # --- Import C++ OWA module ---
-#import owa
+from MDMA import Criterion, Alternative, OWA
 
-# --- Instantiate and initialize the interface ---
-print("Hallo welt.")
+# --- Define sets of criteria and alternatives ---
+criteria = CriteriaVector(2)
+criteria[0] = Criterion("Salary", 30.0)
+criteria[1] = Criterion("Interest", 70.0)
+
+TUDelft = Alternative("TUDelft", [2700, 5])
+DLR = Alternative("DLR", [2000, 7])
+
+alternatives = AlternativesVector(2)
+alternatives[0] = TUDelft
+alternatives[1] = DLR
+
+# --- Initialize the OWA ---
+owa = OWA(criteria, alternatives)
+
+# --- Compute the OWA scores ---
