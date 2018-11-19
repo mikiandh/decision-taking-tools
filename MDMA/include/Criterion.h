@@ -27,8 +27,8 @@ public:
    * @ name: Name of the criterion
    * @ weight: Weight of the criterion
    */
-  Criterion(const String &name, const double weight) :
-      _name(name), _weight(weight)
+  Criterion(const String &name, const double weight, const String &units = "N/A") :
+      _name(name), _weight(weight), _units(units)
   {
   }
 
@@ -50,6 +50,15 @@ public:
     return _weight;
   }
 
+  /* Returns the units the criterion is measured in
+   *
+   * return: units of the criterion
+   */
+  const String& GetUnits() const
+  {
+    return _units;
+  }
+
   /* Computes the scaled and weighted score of each alternative in regards to the current criterion
    *
    * @ alternatives: vector of alternatives
@@ -67,6 +76,7 @@ public:
 protected:
   const String _name;
   const double _weight;
+  const String _units;
 };
 
 // Inverse criterion (higher value results in a lower score)
@@ -78,8 +88,8 @@ public:
    * param "name": name of the criterion
    * param "weight": weight of the criterion
    */
-  InverseCriterion(const String &name, const double weight) :
-      Criterion(name, weight)
+  InverseCriterion(const String &name, const double weight, const String &units = "N/A") :
+      Criterion(name, weight, units)
   {
   }
 

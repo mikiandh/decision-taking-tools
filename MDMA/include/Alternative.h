@@ -52,7 +52,7 @@ public:
    *
    * return: rating
    */
-  const double & GetRating(int index) const
+  const double & GetRating(unsigned int index) const
   {
     return _ratings[index];
   }

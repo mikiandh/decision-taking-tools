@@ -15,13 +15,13 @@ from MDMA import Criterion, InverseCriterion, Alternative, OWA
 owa = OWA()
 
 # --- Specify a set of criteria ---
-owa.Append(Criterion("Cushioning",50))
-owa.Append(InverseCriterion("Weight",50))
+owa.Append(Criterion("Cushioning",25))
+owa.Append(InverseCriterion("Weight",50,"grams"))
+owa.Append(InverseCriterion("Price",25,"euros"))
 
 # --- Specify the alternatives ---
-owa.Append(Alternative("Asics", [10, 350]))
-owa.Append(Alternative("QN", [5, 250]))
+owa.Append(Alternative("Asics", [10, 350, 180]))
+owa.Append(Alternative("QN", [5, 250, 150]))
 
 # --- Summary of input data ---
-owa.CheckData()
 owa.PrintData()

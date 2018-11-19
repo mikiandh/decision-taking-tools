@@ -9,6 +9,7 @@
 #define _OWA_H_
 
 #include <iostream>
+#include <iomanip>
 #include "Criterion.h"
 #include "Alternative.h"
 
