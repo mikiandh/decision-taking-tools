@@ -22,6 +22,10 @@ public:
   typedef std::vector<double> VectorDouble;
   typedef std::vector<const Criterion *> Vector;
 
+  // Public constants
+  static const int SCALED_MAX_SCORE = 10;
+  static const int SCALED_MIN_SCORE = 0;
+
   /* Constructor
    *
    * @ name: Name of the criterion
@@ -61,10 +65,11 @@ public:
 
   /* Computes the scaled and weighted score of each alternative in regards to the current criterion
    *
+   * @ index: index of the current criterion
    * @ alternatives: vector of alternatives
    * @ scores: vector of scores, must have as many components as alternatives
    */
-  virtual void GetScores(const Alternative::Vector &alternative, VectorDouble scores) const;
+  virtual void GetScores(const unsigned int index, const Alternative::Vector &alternatives, VectorDouble &scores) const;
 
   /*
    * Destructor
@@ -95,10 +100,12 @@ public:
 
   /* Computes the scaled and weighted score of each alternative in regards to the current inverse criterion
    *
+   * @ index: index of the current criterion
    * @ alternatives: vector of alternatives
    * @ scores: vector of scores, must have as many components as alternatives
    */
-  void GetScores(const Alternative::Vector &alternative, const VectorDouble scores) const override;
+  void GetScores(const unsigned int index, const Alternative::Vector &alternatives, VectorDouble &scores) const
+      override;
 };
 
 #endif /* CRITERION_H_ */

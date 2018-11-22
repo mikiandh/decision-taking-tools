@@ -8,6 +8,7 @@
 #ifndef _OWA_H_
 #define _OWA_H_
 
+#include <vector>
 #include <iostream>
 #include <iomanip>
 #include "Criterion.h"
@@ -22,7 +23,7 @@ public:
   // Type definitions
   typedef std::string String;
   typedef std::vector<double> VectorDouble;
-  typedef std::vector<std::vector<double> > Matrix2Double;
+  typedef std::vector<std::vector<double> > MatrixDouble;
 
   /*
    * Constructor
@@ -39,17 +40,26 @@ public:
 
   void Append(const Criterion * criterion);
 
+  void Append(const InverseCriterion * criterion);
+
   void Append(const Alternative * alternative);
 
-  bool CheckData();
+  bool CheckData() const;
 
-  void PrintData();
+  void PrintData() const;
+
+  void Compute();
+
+  void PrintMatrix() const;
+
+  void PrintVector() const;
 
 protected:
 
-  unsigned int _I;
-  unsigned int _J;
-  Matrix2Double _owaMatrix;
+  unsigned int _I; // number of criteria
+  unsigned int _J; // number of alternatives
+  VectorDouble _owaVector;
+  MatrixDouble _owaMatrix;
   Criterion::Vector _criteria;
   Alternative::Vector _alternatives;
 };
