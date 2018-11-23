@@ -21,6 +21,14 @@ void Criterion::GetScores(const unsigned int index, const Alternative::Vector &a
     if (rating < minRating)
       minRating = rating;
   }
+  if (minRating == maxRating)
+  {
+    for (auto alternative : alternatives)
+    {
+      scores.push_back(0.0);
+    }
+    return;
+  }
   for (auto alternative : alternatives)
   {
     rating = alternative->GetRating(index);
@@ -44,6 +52,14 @@ void InverseCriterion::GetScores(const unsigned int index, const Alternative::Ve
       maxRating = rating;
     if (rating < minRating)
       minRating = rating;
+  }
+  if (minRating == maxRating)
+  {
+    for (auto alternative : alternatives)
+    {
+      scores.push_back(0.0);
+    }
+    return;
   }
   for (auto alternative : alternatives)
   {
