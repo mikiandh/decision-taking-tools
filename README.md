@@ -16,8 +16,6 @@ Available algorithms:
 
 - **O**rdered **W**eighted **A**verage (OWA)
 
-- **PRESS** method
-
 
 ## Installation
 
