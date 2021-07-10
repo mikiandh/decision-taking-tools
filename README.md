@@ -21,19 +21,19 @@ Available algorithms:
 
 The following simple steps will make the MDMA module available to the
 *current* terminal. Assumes Unix OS, with SWIG and Python installed and
-in the PATH. Tested with Python 2.7 and SWIG 4.0.2 in MacOS Catalina
-10.15.7.
+in the PATH. Tested with Python 3.9.4 and SWIG 4.0.2 on Arch Linux (2021-07-10).
 
 First, clone this repository to your machine:
 ```
 git clone https://github.com/mikiandh/decision-taking-tools
 ```
 
-Second, configure and build it using WAF (a Python script, included):
+Second, configure and build it using Waf:
 ```
 cd decision-taking-tools
 ./waf configure build
 ```
+> The [Waf script](https://gitlab.com/ita1024/waf "Waf's GitLab page") provided has been generated via `./waf-light --tools=swig`.
 
 Third, make Python aware of the MDMA module:
 ```
@@ -43,7 +43,7 @@ export PYTHONPATH=$PYTHONPATH:$PWD
 And that's it.
 
 ## Usage
-Several examples are provided in the homonymously named folder.
+See scripts in the 'examples' folder
 
 ## Author
 Miquel Herrera | mail@miquelherrera.com

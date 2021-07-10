@@ -33,11 +33,11 @@ def configure(conf):
         conf.env.append_value('CXXFLAGS', ['-Ofast', '-march=native', '-flto'])
     
     conf.load('swig')
-    conf.check_swig_version((3, 0, 12))
+    conf.check_swig_version((4,0,0))
     conf.env.append_value('SWIGFLAGS', ['-c++', '-python', '-fcompact', '-fvirtual', '-modern', '-Wall'])
     
     conf.load('python')
-    conf.check_python_version((2, 7))
+    conf.check_python_version((3,0,0))
     conf.check_python_headers()
     
     # conf.recurse(subdirs) # if any sub-directory has a wscript, its configuration is run as well
